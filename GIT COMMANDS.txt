@@ -27,3 +27,5 @@ git pull
 git merge another_branch /*merge another branch in the current branch*/
 git diff
 git reset --hard
+
+
