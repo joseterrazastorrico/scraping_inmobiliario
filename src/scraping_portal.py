@@ -12,13 +12,18 @@ def get_page_content(url):
     return BeautifulSoup(response.text, 'html.parser')
 
 def extract_info(card):
-    link = card.find('a', class_='ui-search-result__content ui-search-link')['href']
-    print(link)
-    # name = card.find('h2', class_='ui-search-item__title').text.strip()
-    # price = card.find('span', class_='price-tag-fraction').text.strip()
-    # Add more fields as necessary
+    link = card.find('a')['href']
+    price = card.find('div', class_="ui-search-price__second-line ui-search-price__second-line--decimal").text
+    attributes = card.select('li', class_="ui-search-card-attributes__attribute")
+    dormitorios = attributes[0].text
+    banos = attributes[1].text
+    m2 = attributes[2].text
     return {
         'link': link,
+        'price': price,
+        'dormitorios': dormitorios,
+        'banos': banos,
+        'm2': m2,
     }
 
 def scrape_all_pages(base_url):
