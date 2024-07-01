@@ -1,7 +1,11 @@
 import requests
 from bs4 import BeautifulSoup
 
-base_url = "https://www.portalinmobiliario.com/venta/departamento/las-condes-metropolitana"
+status = 'venta'
+inmueble = 'departamento'
+comuna = 'las-condes'
+region = 'metropolitana'
+base_url = f"https://www.portalinmobiliario.com/{status}/{inmueble}/{comuna}-{region}"
 
 def get_page_content(url):
     response = requests.get(url)
