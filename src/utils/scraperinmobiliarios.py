@@ -2,11 +2,11 @@ import requests
 from bs4 import BeautifulSoup
 
 class ScraperInmbobiliario:
-    def __init__(self, status='venta', inmueble='departamento',
+    def __init__(self, status='venta', property='departamento',
                  comuna='Las Condes', region='metropolitana') -> None:
-        base_url = "https://www.portalinmobiliario.com/{status}/{inmueble}/{comuna}-{region}"
+        base_url = "https://www.portalinmobiliario.com/{status}/{property}/{comuna}-{region}"
         comuna = '-'.join(comuna.lower().split(' '))
-        self.url = base_url.format(status=status, inmueble=inmueble, comuna=comuna, region=region)
+        self.url = base_url.format(status=status, property=property, comuna=comuna, region=region)
 
     def get_page_content(self, url):
         response = requests.get(url)
