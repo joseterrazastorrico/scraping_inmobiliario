@@ -11,9 +11,9 @@ if __name__ == '__main__':
                         description='This program extract information about properties from a portal web',
                         )
 
-    parser.add_argument('-s', '--status', default='venta', help='options: [venta, arriendo]', action='store_true')
-    parser.add_argument('-p', '--property', default='departamento', help='options: [casa, departamento]', action='store_true')
-    parser.add_argument('-r', '--region', default='region', help='region from Chile', action='store_true')
+    parser.add_argument('-s', '--status', default='venta', help='options: [venta, arriendo]')
+    parser.add_argument('-p', '--property', default='departamento', help='options: [casa, departamento]')
+    parser.add_argument('-r', '--region', default='region', help='region from Chile')
     args = parser.parse_args()
     status = args.status
     property = args.property
@@ -38,4 +38,4 @@ if __name__ == '__main__':
             data = ut.preprocess_data(data)
         except:
             comunas_failed.append(comuna)
-        data.to_excel(f'../data/Propiedades_{status}_{property}_{comuna}.xlsx')
+        data.to_excel(f'./data/Propiedades_{status}_{property}_{comuna}.xlsx')
