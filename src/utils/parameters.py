@@ -6,3 +6,7 @@ COMUNAS = {
         'recoleta', 'huechuraba', 'quilicura', 'colina', 'peñalolen',
      ],
 }
+
+# TODO: update with external resources
+VALUE_UF_TO_CLP = 37500
+VALUE_USD_TO_CLP = 900

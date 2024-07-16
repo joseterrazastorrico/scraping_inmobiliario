@@ -36,6 +36,7 @@ if __name__ == '__main__':
         data = pd.DataFrame(results)
         try:
             data = ut.preprocess_data(data)
+            data = ut.categorize_data(data)
         except:
             comunas_failed.append(comuna)
-        data.to_excel(f'./data/Propiedades_{status}_{property}_{comuna}.xlsx')
+        data.to_excel(f'./data/raw_properties/Propiedades_{status}_{property}_{comuna}.xlsx')

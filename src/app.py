@@ -3,9 +3,13 @@ from dash import dcc, html
 import dash_core_components as dcc
 import dash_html_components as html
 import pandas as pd
+import numpy as np
 import plotly.express as px
 
+
+
 df = pd.read_csv('./data/data_consolidada_RM.csv')
+data_filter = df.loc[df.proyecto==False]
 
 app = dash.Dash(__name__)
 
