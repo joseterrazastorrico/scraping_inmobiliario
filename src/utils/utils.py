@@ -11,7 +11,7 @@ def preprocess_data(data):
     data['banos_clean'] = pd.to_numeric(np.where(data['proyecto'] == True, np.nan, data['banos'].str.replace(' baños*', '', regex=True)))
     data['m2_clean'] = pd.to_numeric(np.where(data['proyecto'] == True, np.nan, data['m2'].str.replace(' m² útiles', '').str.extract('(\d+)')[0]))
     
-    data['price_clean_uf'] = np.where(data['proyecto'] == True,
+    data['price_clean_uf'] = np.where(data['proyecto'] == False,
                                     np.where(data['unidad'] == '$',
                                             data['price_clean'] / p.VALUE_UF_TO_CLP,
                                             np.where(data['unidad'] == 'US',
